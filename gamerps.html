@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script> 
+
+        const array = ["ROCK", "PAPER", "SCISSORS"];
+
+        const playerSelection = prompt("Choose between Rock, Paper, or Scissors", "Rock").toUpperCase();
+        const computerSelection = computerPlay();
+
+        const tie = "Its a Tie! ";
+        const win = "You Win! ";
+        const lose = "You Lose ";
+
+        let result;
+
+        function computerPlay() {
+            return array[Math.floor(Math.random()*array.length)];
+            //math.floor rounds down
+            //math.random gets random number from 0 to 0.99
+        }
+        function playRound(playerSelection, computerSelection) {
+            //note this function doesnt work if you dont put the parameters in the code
+            //ex playRound(playerSelection, computerSelection)
+            if (playerSelection == computerSelection) {
+                result = tie;
+            }
+            else if (playerSelection == "ROCK" && computerSelection == "SCISSORS") {
+                result =  win;
+            }
+            else if (playerSelection == "PAPER" && computerSelection == "ROCK") {
+                result = win;
+            }
+            else if (playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+                result = win;
+            }
+            else {
+                result = lose;
+            }
+            return result;
+        }
+        function game() {
+
+            for (let i = 0; i < 5; i++) {
+                let newRoundOption = prompt("Choose between Rock, Paper, and Scissors.", "Rock").toUpperCase();
+                let newComputerOption = computerPlay();
+                console.log(playRound(newRoundOption, newComputerOption));
+                }
+            }
+    </script>
+</body>
+</html>
